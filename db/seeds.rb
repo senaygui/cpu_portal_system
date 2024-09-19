@@ -8,8 +8,8 @@
 # AdminUser.create!(first_name: "#{ENV['FIRST_NAME']}",last_name: "#{ENV['LAST_NAME']}", email: "#{ENV['ADMIN_EMAIL']}", password: "#{ENV['_PASSWORD']}", password_confirmation: "#{ENV['_PASSWORD']}", role: "#{ENV['ROLE']}") if Rails.env.development?
 
 
-AdminUser.create!(first_name: "fenet",   last_name: "Assefa",
-									email: "admin3@gmail.com", 
+AdminUser.create!(first_name: "admin",   last_name: "user",
+									email: "admin4@gmail.com", 
 									password: "1234567",  
 									role: "admin") 
 AdminUser.create!(first_name: "#{Rails.application.credentials.production[:first_name]}",   
