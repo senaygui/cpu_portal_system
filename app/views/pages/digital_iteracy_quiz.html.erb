@@ -225,12 +225,12 @@
 
     if(numCorrect >= 6){
       resultsContainer.innerHTML = `<p class="mb-2" style="color:green;">${numCorrect} out of ${myQuestions.length}</p>
-      <p style="color:green;">Congratulations you have passed the technical knowledge requirement to enroll to Premier College's Online Program. Please continue to the registration process.</p>
+      <p style="color:green;">Congratulations you have passed the technical knowledge requirement to enroll to CPU College's Online Program. Please continue to the registration process.</p>
       <%= link_to "Apply Now", new_student_registration_path(modality: "online", study_level: "graduate"), class: "btn btn-primary btn-lg"%>`;
     }
     else{
       resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length} <br>
-      <p style="color:red;">Sorry you don't fulfill our minimum requirement for enrolling in Premier College's online program. Please upgrade your technical abilities and try again later.</p>`;
+      <p style="color:red;">Sorry you don't fulfill our minimum requirement for enrolling in CPU College's online program. Please upgrade your technical abilities and try again later.</p>`;
     }
     
 
