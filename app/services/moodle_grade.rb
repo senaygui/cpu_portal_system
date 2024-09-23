@@ -5,7 +5,7 @@ module MoodleGrade
     def moodle_grade(cr)
       is_fetched = false
       url = URI('https://lms.cpucollege.edu.et/webservice/rest/server.php')
-      moodle = MoodleRb.new('293369271397a514ec1314b833524a19', 'https://lms.cpucollege.edu.et/webservice/rest/server.php')
+      moodle = MoodleRb.new('9ab5a994a496d4424dd40777b57a129c', 'https://lms.cpucollege.edu.et/webservice/rest/server.php')
       lms_student = moodle.users.search(email: "#{student_grade.student.email}")
       courses = moodle.courses
       lms_course = courses.search("#{cr.course.course_code}")

@@ -31,7 +31,7 @@ class PagesController < ApplicationController
   def moodle_login
     username = params[:username]
     password = params[:password]
-    moodle_service = MoodleApiService.new('293369271397a514ec1314b833524a19')
+    moodle_service = MoodleApiService.new('9ab5a994a496d4424dd40777b57a129c')
     user = moodle_service.get_user_by_username(username)
 
     if user['users'].any?
