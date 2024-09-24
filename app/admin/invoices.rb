@@ -13,33 +13,31 @@ ActiveAdmin.register Invoice, as: 'RegistrationPayment' do
 
   controller do
     after_action :testmoodle, only: [:update]
+
     def testmoodle
-      if @registration_payment.payment_transaction.finance_approval_status == "approved"
+      if @registration_payment.payment_transaction.finance_approval_status == 'approved'
         @moodle = MoodleRb.new('293369271397a514ec1314b833524a19', 'https://lms.cpucollege.edu.et/webservice/rest/server.php')
-        if !(@moodle.users.search(email: "#{@registration_payment.student.email}").present?)
+        unless @moodle.users.search(email: "#{@registration_payment.student.email}").present?
           student = @moodle.users.create(
-              :username => "#{@registration_payment.student.student_id.downcase}",
-              :password => "#{@registration_payment.student.student_password}",
-              :firstname => "#{@registration_payment.student.first_name}",
-              :lastname => "#{@registration_payment.student.last_name}",
-              :email => "#{@registration_payment.student.email}"
-            )
+            username: "#{@registration_payment.student.student_id.downcase}",
+            password: "#{@registration_payment.student.student_password}",
+            firstname: "#{@registration_payment.student.first_name}",
+            lastname: "#{@registration_payment.student.last_name}",
+            email: "#{@registration_payment.student.email}"
+          )
           lms_student = @moodle.users.search(email: "#{@registration_payment.student.email}")
-          @user = lms_student[0]["id"]
+          @user = lms_student[0]['id']
           @registration_payment.semester_registration.course_registrations.each do |c|
             s = @moodle.courses.search("#{c.course.course_code}")
-            @course = s["courses"].to_a[0]["id"]
+            @course = s['courses'].to_a[0]['id']
             @moodle.enrolments.create(
-              :user_id => "#{@user}",
-              :course_id => "#{@course}",
-              # :time_start => 1646312400,
-              # :time_end => 1646398800
+              user_id: "#{@user}",
+              course_id: "#{@course}"
             )
           end
         end
       end
     end
-    
   end
 
   index do
