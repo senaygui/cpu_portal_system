@@ -16,7 +16,7 @@ ActiveAdmin.register Invoice, as: 'RegistrationPayment' do
 
     def testmoodle
       if @registration_payment.payment_transaction.finance_approval_status == 'approved'
-        @moodle = MoodleRb.new('293369271397a514ec1314b833524a19', 'https://lms.cpucollege.edu.et/webservice/rest/server.php')
+        @moodle = MoodleRb.new('5416adef8a15c2a82837c08f0704ee90', 'https://lms.cpucollege.edu.et/webservice/rest/server.php')
         unless @moodle.users.search(email: "#{@registration_payment.student.email}").present?
           student = @moodle.users.create(
             username: "#{@registration_payment.student.student_id.downcase}",
