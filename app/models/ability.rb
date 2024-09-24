@@ -101,7 +101,7 @@ class Ability
       can :manage, ActiveAdmin::Page, name:"StudentReport", namespace_name: "admin"
       can :manage, ActiveAdmin::Page, name:"OnlineStudentGrade", namespace_name: "admin"
       can :manage, AcademicCalendar
-      can :manage, AdminUser, role: "instructor"
+      # can :manage, AdminUser, role: "instructor"
       can :manage, Faculty
       # can :manage, Department
       can :read, CourseModule
