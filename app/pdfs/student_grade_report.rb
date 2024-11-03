@@ -46,7 +46,7 @@ class StudentGradeReport < Prawn::Document
     repeat :all do
       bounding_box [bounds.left, bounds.top], width: bounds.width do
         font 'Times-Roman'
-        image open('app/assets/images/cpu_logo_admin.png'), fit: [120, 100], position: :center
+        image open('app/assets/images/cpu_logo_admin.jpg'), fit: [120, 100], position: :center
         move_down 10
         text 'CPU COLLEGE', align: :center, size: 20, font_style: :bold
         move_down 10

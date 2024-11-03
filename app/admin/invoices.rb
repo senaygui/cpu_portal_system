@@ -30,10 +30,7 @@ ActiveAdmin.register Invoice, as: 'RegistrationPayment' do
           @registration_payment.semester_registration.course_registrations.each do |c|
             s = @moodle.courses.search("#{c.course.course_code}")
             @course = s['courses'].to_a[0]['id']
-            @moodle.enrolments.create(
-              user_id: "#{@user}",
-              course_id: "#{@course}"
-            )
+            @moodle.enrolments.create(user_id: "#{@user}",course_id: "#{@course}")
           end
         end
       end

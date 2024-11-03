@@ -171,14 +171,14 @@ class StudentGrade < ApplicationRecord
 
   def moodle_grade
     url = URI('https://lms.cpucollege.edu.et/webservice/rest/server.php')
-    moodle = MoodleRb.new('9ab5a994a496d4424dd40777b57a129c', 'https://lms.cpucollege.edu.et/webservice/rest/server.php')
+    moodle = MoodleRb.new('5416adef8a15c2a82837c08f0704ee90', 'https://lms.cpucollege.edu.et/webservice/rest/server.php')
     lms_student = moodle.users.search(email: "#{student.email}")
     user = lms_student[0]['id']
     https = Net::HTTP.new(url.host, url.port)
     https.use_ssl = true
 
     request = Net::HTTP::Post.new(url)
-    form_data = [%w[wstoken 9ab5a994a496d4424dd40777b57a129c],
+    form_data = [%w[wstoken 5416adef8a15c2a82837c08f0704ee90],
                  %w[wsfunction gradereport_overview_get_course_grades], %w[moodlewsrestformat json], ['userid', "#{user}"]]
     request.set_form form_data, 'multipart/form-data'
     response = https.request(request)

@@ -1,6 +1,6 @@
 class StudentCopy < Prawn::Document
   def initialize(students, gc_date)
-    super(page_layout: :landscape, background: open('app/assets/images/cpu_logo_admin.png'))
+    super(page_layout: :landscape, background: open('app/assets/images/cpu_logo_admin.jpg'))
     @students = students
     gc_date = Date.parse(gc_date)
     @students.each_with_index do |stud, _index|
